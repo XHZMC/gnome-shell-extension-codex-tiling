@@ -1,0 +1,22 @@
+/*
+ * 拖动窗口时的落点预览。样式类由 lib/preview.js 添加。
+ *
+ * 所有落点都用同一种表示：主题色（GNOME Shell 的 -st-accent-color，配合 St 的
+ * st-transparentize() 做半透明）的淡填充 + 一条高亮的实心主题色边框。
+ * 边框宽度由设置项 preview-border-width 决定（preview.js 用内联样式覆盖），
+ * 这里给的是默认值 6px —— 和间隙高亮的粗细一致。
+ */
+.codex-tiling-preview {
+    background-color: st-transparentize(-st-accent-color, 0.88);
+    border: 6px solid -st-accent-color;
+    border-radius: 8px;
+}
+
+/*
+ * 插到两个窗口之间：直接高亮它们之间的间隙（细长实心条）。
+ * 位置和粗细由 planDrop() 给出的 gapRect 决定（见 lib/preview.js）。
+ */
+.codex-tiling-preview-gap {
+    background-color: -st-accent-color;
+    border-radius: 3px;
+}

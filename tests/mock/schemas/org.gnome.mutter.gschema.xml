@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  测试用的假 org.gnome.mutter schema：只为了验证「接管 / 归还贴边吸附」这条链路。
+  默认值故意跟发行版的 override 一致（true），这样「恢复成用户原本的设置」才有意义。
+  真机上用的是系统自己的 schema，这个文件只被 tests/mock/run.sh 编译进测试的 schema 目录。
+-->
+<schemalist>
+  <schema id="org.gnome.mutter" path="/org/gnome/mutter/">
+    <key name="edge-tiling" type="b">
+      <default>true</default>
+      <summary>Enable edge tiling when dropping windows on screen edges</summary>
+    </key>
+  </schema>
+</schemalist>

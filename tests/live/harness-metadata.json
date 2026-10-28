@@ -1,0 +1,15 @@
+{
+  "uuid": "codex-tiling-harness@local",
+  "name": "Codex Tiling Live Harness",
+  "description": "临时测试扩展：在真实的 GNOME Shell 里验证 codex-tiling 的行为。",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    "51"
+  ],
+  "version": 1
+}

@@ -1,0 +1,16 @@
+{
+  "uuid": "codex-tiling@codex.local",
+  "name": "Codex Tiling（平铺窗口管理）",
+  "description": "BSP 平铺窗口管理：窗口铺满屏幕、不留空位也不互相重叠；新窗口按通常方式上下平铺（不顶替、不最小化别的窗口）；拖到窗口边缘 / 分界线 / 另一个窗口上分别实现平铺、插入与交换；最大化、最小化、对话框和全屏窗口不参与平铺。",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    "51"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.codex-tiling",
+  "version": 4
+}

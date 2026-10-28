@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.codex-tiling"
+          path="/org/gnome/shell/extensions/codex-tiling/">
+
+    <key name="enabled" type="b">
+      <default>true</default>
+      <summary>启用平铺管理</summary>
+      <description>关闭后扩展不再接管窗口布局，已平铺的窗口保持当前位置不动。</description>
+    </key>
+
+    <key name="gap" type="i">
+      <default>0</default>
+      <range min="0" max="48"/>
+      <summary>窗口之间的内间距（像素）</summary>
+      <description>0 表示窗口严丝合缝地相邻，与传统平铺窗口管理器一致。</description>
+    </key>
+
+    <key name="outer-gap" type="i">
+      <default>0</default>
+      <range min="0" max="128"/>
+      <summary>屏幕边缘的外间距（像素）</summary>
+    </key>
+
+    <key name="icon-area-inset" type="i">
+      <default>0</default>
+      <range min="0" max="256"/>
+      <summary>底部图标停靠区留白（像素）</summary>
+      <description>
+        平铺的根节点不包含底部图标停靠区（Icon Area）。占位的停靠区（例如默认配置的
+        Ubuntu Dock）已经算在工作区之外，无需设置；如果停靠区是自动隐藏、不占位的，
+        用这个值把底部那段空间留出来。
+      </description>
+    </key>
+
+    <key name="edge-threshold" type="i">
+      <default>40</default>
+      <range min="4" max="200"/>
+      <summary>拖动时的边缘吸附判定距离（像素）</summary>
+      <description>指针进入某个窗口的格子边缘这一距离内，即视为“拖到这个窗口的边上”。</description>
+    </key>
+
+    <key name="minimum-window-size" type="i">
+      <default>120</default>
+      <range min="40" max="800"/>
+      <summary>布局中窗口的最小尺寸（像素）</summary>
+      <description>拖动边缘或插入新窗口时，用于限制分割比例，避免出现被压扁的窗口。</description>
+    </key>
+
+    <key name="show-overview-when-empty" type="b">
+      <default>false</default>
+      <summary>桌面上没有窗口时进入概览</summary>
+      <description>
+        当前桌面（所有显示器）上没有任何非最小化的窗口时自动进入概览。默认关闭。
+        平铺模式下窗口经常被最小化，打开它可以省掉「Alt+F1 / 左上角」那一下。
+      </description>
+    </key>
+
+    <key name="mutter-edge-tiling-backup" type="s">
+      <default>''</default>
+      <summary>接管期间替 mutter 保存的贴边吸附设置</summary>
+      <description>
+        平铺生效期间扩展会把 org.gnome.mutter 的 edge-tiling 关掉（贴边吸附改由本扩展的
+        落点逻辑负责），这里记下接管之前用户的值，取消接管时写回去。
+        用一个持久化的键而不是内存变量，是为了让「上次 Shell 没有干净退出（没机会恢复）」
+        这种情况也能正确还原 —— 否则那个 false 会被当成用户自己的设置继承下去。
+        空字符串表示「当前没有在接管」，不会去动 mutter 的设置。
+      </description>
+    </key>
+
+    <key name="show-preview" type="b">
+      <default>true</default>
+      <summary>拖动时显示落点预览</summary>
+    </key>
+
+    <key name="preview-border-width" type="i">
+      <default>6</default>
+      <range min="1" max="24"/>
+      <summary>落点预览的边框像素</summary>
+      <description>
+        目标格子预览的边框宽度，以及「插到两个窗口之间 / 屏幕竖边」时那条间隙高亮的粗细。
+        两种预览共用这一个值，保证视觉一致。默认 6px。
+      </description>
+    </key>
+
+    <key name="rearrange-existing-windows" type="b">
+      <default>true</default>
+      <summary>启用扩展时重新排列已有窗口</summary>
+      <description>启用时把当前桌面上的窗口按平分方式平铺；关闭则只接管新打开的窗口。</description>
+    </key>
+
+  </schema>
+</schemalist>
